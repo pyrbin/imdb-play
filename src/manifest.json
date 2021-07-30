@@ -1,0 +1,27 @@
+{
+  "name": "imdb-play",
+  "description": "Extension that adds a play-button to IMDb pages. Uses the VIDSRC api",
+  "version": "0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_description": "Extension that adds a play-button to IMDb pages. Uses the VIDSRC api",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://www.imdb.com/title/*"],
+      "js": ["content-scripts/main.tsx"],
+      "run_at": "document_end"
+    }
+  ]
+}

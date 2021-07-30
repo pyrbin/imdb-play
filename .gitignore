@@ -1,0 +1,6 @@
+node_modules/
+.node_modules/
+
+[Dd]ist/
+[Oo]ut/
+[Bb]uild/

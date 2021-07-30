@@ -1,0 +1,22 @@
+{
+  "name": "imdb-play",
+  "version": "1.0.0",
+  "description": "Chromimum extension that adds a play-button to IMDb pages.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite build --mode development",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@preact/preset-vite": "^2.1.0",
+    "@types/chrome": "^0.0.149",
+    "@types/node": "^16.4.7",
+    "preact": "^10.5.14",
+    "preact-render-to-string": "^5.1.19",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5",
+    "vite": "^2.1.5",
+    "vite-plugin-chrome-extension": "^0.0.7"
+  }
+}
