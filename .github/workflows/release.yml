@@ -30,7 +30,7 @@ jobs:
       - uses: papeloto/action-zip@v1
         with:
           files: dist/
-          dest: release
+          dest: release.zip
 
       - name: Upload release asset
         id: upload-release-asset
