@@ -1,0 +1,44 @@
+
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: "14.15.2"
+          registry-url: https://npm.pkg.github.com
+
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.2.2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - run: npm install -g pnpm
+      - name: Run node install
+        run: pnpm install --frozen-lockfile
+      - name: Run build
+        run: pnpm build
+      - uses: papeloto/action-zip@v1
+        with:
+          files: dist/
+          dest: release
+
+      - name: Upload release asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: ./release.zip
+          asset_name: imdb-play.zip
+          asset_content_type: application/zip
