@@ -1,6 +1,6 @@
 {
   "name": "imdb-play",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Chromimum extension that adds a play-button to IMDb pages.",
   "main": "index.js",
   "scripts": {
